@@ -32,3 +32,29 @@ ECMA_tool.dataType = function(data) {
     var str = Object.prototype.toString.call(data);
     return str.match(/\[object (.*?)\]/)[1].toLowerCase();
 };
+// 获取数据类型，并创建断言函数。
+ECMA_tool.type = function (o){
+  var s = Object.prototype.toString.call(o);
+return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+ECMA_tool.classof(o) {
+  if(o === null) {return 'Null'};
+  if(o === undefined) {return 'Undefined'};
+  return Object.prototype.toString.call(o).slice(8,-1);
+}
+['Null','Undefined','Object','Array','String','Number','Boolean','Function','RegExp'].forEach(function (t){
+  ECMA_tool.type['is' + t] = function(o){
+    return ECMA_tool.type(o) === t.toLowerCase();
+  };
+});
+// 对象继承
+ECMA_tool.inherit(o) {
+  if(p === null){throw new TypeError(); }
+  if(Object.create){ return Object.create(o); }
+  var t = typeof o;
+  if(t !== 'object' && t !== 'function'){ throw new TypeError(); }
+  function F(){};
+  F.prototype = o;
+  return new F();
+};
+ 
