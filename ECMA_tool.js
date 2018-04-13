@@ -37,7 +37,7 @@ ECMA_tool.type = function (o){
   var s = Object.prototype.toString.call(o);
 return s.match(/\[object (.*?)\]/)[1].toLowerCase();
 };
-ECMA_tool.classof(o) {
+ECMA_tool.classof = function(o) {
   if(o === null) {return 'Null'};
   if(o === undefined) {return 'Undefined'};
   return Object.prototype.toString.call(o).slice(8,-1);
@@ -48,7 +48,7 @@ ECMA_tool.classof(o) {
   };
 });
 // 对象继承
-ECMA_tool.inherit(o) {
+ECMA_tool.inherit = function (o){
   if(p === null){throw new TypeError(); }
   if(Object.create){ return Object.create(o); }
   var t = typeof o;
@@ -57,4 +57,12 @@ ECMA_tool.inherit(o) {
   F.prototype = o;
   return new F();
 };
+// 测试一个字符是否为四字节组成
+ECMA_tool.is32Bit = function(str){
+  if(typeof str === 'string'){
+    return str.codePointAt(0) > 0xFFFF;
+  }else{
+    throw new TypeError(str + 'is not String');
+  }
+}
  
