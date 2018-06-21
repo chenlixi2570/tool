@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .c{
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      width: 380px;
+      height: 380px;
+      border: 1px solid #000;
+    }
+    .a {
+      position: absolute;
+      left: 42px;
+      top: 42px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #f00;
+      transform-origin: 148px 148px;
+      transform: rotate(45deg)
+    }
+    .b{
+      animation: circle__round 5s linear 1;
+    }
+    @keyframes circle__round {
+      0% {
+        transform: rotate(45deg);
+      }
+      100% {
+        transform: rotate(405deg);
+      }
+    }
+    .d{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 380px;
+      height: 380px;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="c">
+    <div class="a b"></div>
+    <div class="d"></div>
+  </div>
+
+
+
+</body>
+
+</html>
